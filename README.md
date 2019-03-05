@@ -2,11 +2,11 @@
 
 > `setTimeout()` that throws instead of misbehaving with large delays
 
-A value larger than 2147483647 milliseconds (~25 days) is too large to fit into a signed 32-bit integer, which is not supported by some JS engines stores it, which will silently use 1 millisecond instead.
+A value larger than 2147483647 milliseconds (~25 days) is too large to fit into a signed 32-bit integer, which is not supported by some JS engines, which will silently use 1 millisecond instead.
 
 Such a surprising behavior is a very bad idea and has caused me issues a couple of times.
 
-This module export a small wrapper around `setTimeout` which will throws a `RangeError` if the specified delay is above this value.
+This module exports a small wrapper around `setTimeout` which will throw a `RangeError` if the specified delay is above this value.
 
 ## Install
 
@@ -40,7 +40,7 @@ const handle = setTimeout(callback, delay, arg1, arg2);
 
 This module also provides a _safe_ version of `setTimeout` which will correctly behave with huge delays.
 
-As for `strictTimeout`, the API is the same as native `setTimeout`, **but** you cannot use native `clearTimeout` for this one, you need to use `safeTimeout.clear()` instead:
+As for `strictTimeout`, the API is the same as native `setTimeout`, **but** you cannot use native `clearTimeout` for this one, you must use `safeTimeout.clear()` instead:
 
 ```js
 const safeTimeout = require("strict-timeout/safe");
