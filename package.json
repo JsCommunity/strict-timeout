@@ -12,6 +12,10 @@
     "url": "https://github.com/JsCommunity/strict-timeout/issues"
   },
   "homepage": "https://github.com/JsCommunity/strict-timeout#readme",
+  "files": [
+    "index.js",
+    "safe.js"
+  ],
   "devDependencies": {
     "eslint": "^5.15.0",
     "eslint-config-prettier": "^4.1.0",
