@@ -1,4 +1,4 @@
-# strict-timeout
+# strict-timeout ![](https://badgen.net/npm/v/strict-timeout) ![](https://badgen.net/bundlephobia/minzip/strict-timeout)
 
 > `setTimeout()` that throws instead of misbehaving with large delays
 
