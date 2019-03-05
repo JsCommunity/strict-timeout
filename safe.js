@@ -19,26 +19,38 @@
   function() {
     "use strict";
 
-    var concat = Array.prototype.concat;
+    var slice = Array.prototype.slice;
     var MAX_TIMEOUT = 2147483647;
 
-    function Wrapper(handle) {
-      this.handle = handle;
+    function Task(cb, delay, args) {
+      this.args = args;
+      this.cb = cb;
+      this.delay = delay;
+      this.handle = undefined;
+    }
+
+    function run(task) {
+      return task.cb.apply(undefined, task.args);
+    }
+
+    function schedule(task) {
+      var delay = task.delay;
+      if (delay > MAX_TIMEOUT) {
+        task.delay -= MAX_TIMEOUT;
+        task.handle = setTimeout(schedule, MAX_TIMEOUT, task);
+      } else {
+        task.handle = setTimeout(run, delay, task);
+      }
     }
 
     function safeTimeout(cb, delay) {
-      var args;
-      if (delay > MAX_TIMEOUT) {
-        args = concat.apply([safeTimeout, MAX_TIMEOUT], arguments);
-        args[3] = delay - MAX_TIMEOUT;
-      } else {
-        args = arguments;
-      }
-      return new Wrapper(setTimeout.apply(this, args));
+      var task = new Task(cb, delay, slice.call(arguments));
+      schedule(task);
+      return task;
     }
 
-    safeTimeout.clear = function(wrapper) {
-      return clearTimeout(wrapper.handle);
+    safeTimeout.clear = function(task) {
+      return clearTimeout(task.handle);
     };
 
     return safeTimeout;
