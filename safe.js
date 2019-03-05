@@ -29,8 +29,8 @@
     function safeTimeout(cb, delay) {
       var args;
       if (delay > MAX_TIMEOUT) {
-        args = concat.apply([safeTimeout], arguments);
-        args[2] = delay - MAX_TIMEOUT;
+        args = concat.apply([safeTimeout, MAX_TIMEOUT], arguments);
+        args[3] = delay - MAX_TIMEOUT;
       } else {
         args = arguments;
       }
