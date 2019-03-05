@@ -11,7 +11,7 @@ describe("strictTimeout", function() {
 
   it("works with big delays", function() {
     var cb = jest.fn();
-    safeTimeout(cb, MAX_TIMEOUT * 2);
+    safeTimeout(cb, MAX_TIMEOUT * 2, "foo", "bar");
 
     expect(cb).not.toHaveBeenCalled();
 
@@ -19,7 +19,7 @@ describe("strictTimeout", function() {
     expect(cb).not.toHaveBeenCalled();
 
     jest.advanceTimersByTime(MAX_TIMEOUT);
-    expect(cb).toHaveBeenCalled();
+    expect(cb.mock.calls).toEqual([["foo", "bar"]]);
   });
 
   it("timeout can be cleared", function() {

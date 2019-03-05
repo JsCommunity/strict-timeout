@@ -44,7 +44,7 @@
     }
 
     function safeTimeout(cb, delay) {
-      var task = new Task(cb, delay, slice.call(arguments));
+      var task = new Task(cb, delay, slice.call(arguments, 2));
       schedule(task);
       return task;
     }
