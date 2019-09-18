@@ -29,8 +29,11 @@
       this.handle = undefined;
     }
 
-    function run(task) {
-      return task.cb.apply(undefined, task.args);
+    function run(t) {
+      var cb = t.cb;
+      var args = t.args;
+      t.args = t.cb = t.delay = t.handle = undefined;
+      return cb.apply(undefined, args);
     }
 
     function schedule(task) {
@@ -49,8 +52,10 @@
       return task;
     }
 
-    safeTimeout.clear = function(task) {
-      return clearTimeout(task.handle);
+    safeTimeout.clear = function(t) {
+      var handle = t.handle;
+      t.args = t.cb = t.delay = t.handle = undefined;
+      return clearTimeout(handle);
     };
 
     return safeTimeout;
