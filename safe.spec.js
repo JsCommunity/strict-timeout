@@ -4,12 +4,12 @@ var safeTimeout = require("./safe");
 
 jest.useFakeTimers();
 
-describe("strictTimeout", function() {
+describe("strictTimeout", function () {
   "use strict";
 
   var MAX_TIMEOUT = 2147483647;
 
-  it("works with big delays", function() {
+  it("works with big delays", function () {
     var cb = jest.fn();
     safeTimeout(cb, MAX_TIMEOUT * 2, "foo", "bar");
 
@@ -22,7 +22,7 @@ describe("strictTimeout", function() {
     expect(cb.mock.calls).toEqual([["foo", "bar"]]);
   });
 
-  it("timeout can be cleared", function() {
+  it("timeout can be cleared", function () {
     var cb = jest.fn();
     safeTimeout.clear(safeTimeout(cb, 10));
 

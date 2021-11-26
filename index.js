@@ -1,6 +1,6 @@
 /* eslint-disable */
 // if the module has no dependencies, the above pattern can be simplified to
-(function(root, factory) {
+(function (root, factory) {
   if (typeof define === "function" && define.amd) {
     // AMD. Register as an anonymous module.
     define([], factory);
@@ -16,7 +16,7 @@
 })(
   typeof self !== "undefined" ? self : this,
   /* eslint-enable */
-  function() {
+  function () {
     "use strict";
 
     var MAX_TIMEOUT = 2147483647;

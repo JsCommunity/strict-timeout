@@ -1,6 +1,6 @@
 /* eslint-disable */
 // if the module has no dependencies, the above pattern can be simplified to
-(function(root, factory) {
+(function (root, factory) {
   if (typeof define === "function" && define.amd) {
     // AMD. Register as an anonymous module.
     define([], factory);
@@ -16,7 +16,7 @@
 })(
   typeof self !== "undefined" ? self : this,
   /* eslint-enable */
-  function() {
+  function () {
     "use strict";
 
     var slice = Array.prototype.slice;
@@ -52,7 +52,7 @@
       return task;
     }
 
-    safeTimeout.clear = function(t) {
+    safeTimeout.clear = function (t) {
       var handle = t.handle;
       t.args = t.cb = t.delay = t.handle = undefined;
       return clearTimeout(handle);
