@@ -59,7 +59,7 @@
       return task;
     }
 
-    safeTimeout.clear = function (t) {
+    safeTimeout.clear = function clear(t) {
       var handle = t._handle;
       t._args = t._cb = t._delay = t._handle = undefined;
       return clearTimeout(handle);
