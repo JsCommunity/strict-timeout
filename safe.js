@@ -29,6 +29,13 @@
       this.handle = undefined;
     }
 
+    Task.prototype.ref = function ref() {
+      return this.handle.ref();
+    };
+    Task.prototype.unref = function unref() {
+      return this.handle.unref();
+    };
+
     function run(t) {
       var cb = t.cb;
       var args = t.args;

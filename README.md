@@ -47,6 +47,10 @@ const safeTimeout = require("strict-timeout/safe");
 
 const handle = safeTimeout(callback, delay, arg1, arg2);
 
+// Node `ref` and `unref` methods are available
+handle.unref();
+handle.ref();
+
 // you cannot use native clearTimeout!
 safeTimeout.clear(handle);
 ```
