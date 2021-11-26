@@ -1,4 +1,6 @@
-# strict-timeout ![](https://badgen.net/npm/v/strict-timeout) ![](https://badgen.net/bundlephobia/minzip/strict-timeout)
+# strict-timeout
+
+[![Package Version](https://badgen.net/npm/v/strict-timeout)](https://npmjs.org/package/strict-timeout) ![License](https://badgen.net/npm/license/strict-timeout) [![PackagePhobia](https://badgen.net/bundlephobia/minzip/strict-timeout)](https://bundlephobia.com/result?p=strict-timeout) [![Node compatibility](https://badgen.net/npm/node/strict-timeout)](https://npmjs.org/package/strict-timeout)
 
 > `setTimeout()` that throws instead of misbehaving with large delays
 
