@@ -8,22 +8,17 @@ module.exports = {
 
     // disable rules handled by prettier
     "prettier",
-    "prettier/standard",
   ],
 
   parserOptions: {
-    ecmaVersion: 3,
+    ecmaVersion: 5,
     sourceType: "script",
   },
 
+  reportUnusedDisableDirectives: true,
+
   rules: {
-    // detect incorrect import
-    "node/no-extraneous-import": "error",
-    "node/no-missing-import": "error",
-
-    // uncomment if you are using a builder like Babel
-    // "node/no-unsupported-features/es-syntax": "off",
-
+    "no-var": "off",
     strict: ["error", "function"],
   },
 };
