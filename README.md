@@ -59,4 +59,4 @@ safeTimeout.clear(handle);
 
 ## License
 
-ISC © [Julien Fontanet](https://github.com/julien-f)
+[ISC](https://spdx.org/licenses/ISC) © [Julien Fontanet](https://github.com/julien-f)
